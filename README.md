@@ -1,4 +1,4 @@
-# Social Media App 💸
+# Social Media App 
 
 Craze Mania is an social media application. The user can upload Videos,Images, Audios on this application. User can also download liked content. The user has authority to report irrelevant content. Users can like, dislike, comment to any content. The images stored are encrypted so no one has to worry about the security.
 
