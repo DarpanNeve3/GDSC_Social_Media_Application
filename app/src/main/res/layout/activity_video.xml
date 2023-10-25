@@ -4,52 +4,231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".VideoActivity">
 
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:foregroundGravity="center"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bmv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/send"
+        android:textColor="#F6F2F2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="-3dp"
+        android:text="@string/download"
+        android:textColor="#F6F2F2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="9dp"
+        android:text="@string/dislike"
+        android:textColor="#F6F2F2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="2dp"
         android:contentDescription="@string/like"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="checkLike"
         android:tag="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/smallunliked1" />
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="@+id/videoView"
+        app:srcCompat="@drawable/new_like_thumb_white" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="33dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:text="0"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="-7dp"
+        android:text="@string/like"
         android:textColor="#F6F2F2"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="45dp"
-        android:layout_height="32dp"
-        android:onClick="goToParent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="checkDislike"
+        android:tag="0"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/ic_baseline_thumb_down_white"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/download"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="download"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/download_image" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/send_icon"
+        android:onClick="sendIt"/>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="showMore"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/more_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="89dp"
+        android:layout_height="83dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/videoView"
+        app:srcCompat="@drawable/like_image" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/smiley" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/new_button_shape"
+        android:onClick="followButton"
+        android:text="@string/follow"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="12dp"
+        android:text="Username"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FA1BEF"
+        android:progressBackgroundTint="#FA1BEF"
+        android:progressTint="#FFFFFF"
+        android:layout_marginTop="20dp"
+        android:thumb="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video Name"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bmv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
